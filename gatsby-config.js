@@ -2,9 +2,9 @@ var proxy = require("http-proxy-middleware")
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'DFW Marine Rentals',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Pontoon rentals, wake board boat rentals, jet ski rentals in Dallas/Fort Worth, Texas.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
