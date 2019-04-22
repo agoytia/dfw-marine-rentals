@@ -4,68 +4,37 @@ const GridList = () => {
   return (
     <section className="wrapper style1 align-center">
       <div className="inner">
-        <h2>Give us a call</h2>
-        <p>This is an <strong>Items</strong> element, and it's basically just a grid for organizing items of various types. You can customize its <span className="demo-controls">appearance with a number of modifiers</span>, as well as assign it an optional <code>onload</code> or <code>onscroll</code> transition modifier (<a href="#reference-items">details</a>).</p>
+        <h2>Give us a call <a href="tel:1-817-298-8924">(817) 298-8924</a></h2>
         <div className="items style1 medium onscroll-fade-in">
           <section>
-            <span className="icon style2 major fa-diamond"></span>
-            <h3>One</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-          </section>
-          <section>
-            <span className="icon style2 major fa-save"></span>
-            <h3>Two</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-          </section>
-          <section>
-            <span className="icon style2 major fa-bar-chart"></span>
-            <h3>Three</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+            <span className="icon style2 major fa-paper-plane"></span>
+            <h3>Towing</h3>
+            <p>We'll tow to any lake in DFW.</p>
           </section>
           <section>
             <span className="icon style2 major fa-wifi"></span>
-            <h3>Four</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+            <h3>Gas</h3>
+            <p>All of our rentals are delivered with one complimentary tank of gas.</p>
           </section>
           <section>
-            <span className="icon style2 major fa-cog"></span>
-            <h3>Five</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+            <span className="icon style2 major fa-diamond"></span>
+            <h3>Best Price</h3>
+            <p>At $250 for any jet ski for 6 hours, our prices can't be beat in DFW!</p>
           </section>
           <section>
-            <span className="icon style2 major fa-paper-plane"></span>
-            <h3>Six</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-          </section>
-          <section>
-            <span className="icon style2 major fa-desktop"></span>
-            <h3>Seven</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-          </section>
-          <section>
-            <span className="icon style2 major fa-refresh"></span>
-            <h3>Eight</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-          </section>
-          <section>
-            <span className="icon style2 major fa-hashtag"></span>
-            <h3>Nine</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+            <span className="icon style2 major fa-save"></span>
+            <h3>Book Online</h3>
+            <p>Save time by using our request to book contact form to initiate the booking online.</p>
           </section>
           <section>
             <span className="icon style2 major fa-bolt"></span>
-            <h3>Ten</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+            <h3>Speedy Service</h3>
+            <p>Give us a call for the items that need faster turn around times.</p>
           </section>
           <section>
-            <span className="icon style2 major fa-envelope"></span>
-            <h3>Eleven</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-          </section>
-          <section>
-            <span className="icon style2 major fa-leaf"></span>
-            <h3>Twelve</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+            <span className="icon style2 major fa-cog"></span>
+            <h3>Damage Deposit</h3>
+            <p>There is a $250 refundable deposit to cover damages.</p>
           </section>
         </div>
       </div>

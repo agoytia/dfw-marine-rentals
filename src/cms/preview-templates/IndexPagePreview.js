@@ -12,18 +12,18 @@ const IndexPagePreview = ({ entry, getAsset, widgetFor }) => {
         image={getAsset(data.image)}
         title={data.title}
       />
-    )
+    );
   } else {
-    return (<div>Loading...</div>)
+    return (<div>Loading...</div>);
   }
 };
 
 IndexPagePreview.propTypes = {
   entry: PropTypes.shape({
-    getIn: PropTypes.func,
+    getIn: PropTypes.func
   }),
   getAsset: PropTypes.func,
   widgetFor: PropTypes.func
 };
 
-export default IndexPagePreview
+export default IndexPagePreview;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {graphql, StaticQuery } from 'gatsby'
+import {graphql, Link, StaticQuery } from 'gatsby'
 
-import Product from '../../templates/product';
+import classNames from "classnames";
 
 const Products = (props) => {
   const {
@@ -13,17 +13,31 @@ const Products = (props) => {
     }
   } = props;
 
-  return products.map(({node}, index) => {
-    console.log(node);
+  return products.map(({ node }, index) => {
+    const className = classNames(
+      'spotlight style1',
+      {'orient-right': !(index % 2)},
+      {'orient-left': index % 2},
+      'content-align-left image-position-center onscroll-image-fade-in'
+    );
+
+    const sectionProps = {className};
+    if (index === 0) sectionProps.id = 'first';
+
+    const { image, title } = node.frontmatter;
+    const { slug } = node.fields;
     return (
-      <Product
-        key={node.frontmatter.title}
-        id={index}
-        image={node.frontmatter.image}
-        body={node.excerpt}
-        title={node.frontmatter.title}
-      />
-    )
+      <section key={title} {...sectionProps}>
+        <div className="content">
+          <h2>{title}</h2>
+          <p>{node.excerpt}</p>
+          <Link to={slug} className="button large wide smooth-scroll-middle">Request to book</Link>
+        </div>
+        <div className="image">
+          <img src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} alt="" />
+        </div>
+      </section>
+    );
   });
 };
 
@@ -32,11 +46,14 @@ export default () => (
     query={graphql`
       query productsQuery {
         allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "product" } } }
+          filter: { frontmatter: { templateKey: { eq: "product-page" } } }
         ) {
           edges {
             node {
               excerpt
+              fields {
+                slug
+              }
               frontmatter {
                 image {
                   childImageSharp {

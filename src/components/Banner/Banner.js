@@ -8,7 +8,7 @@ const Banner = (props) => {
   } = props;
 
   return (
-    <section className="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+    <section className="banner style5 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
       <div className="content">
         <h1>{title}</h1>
         {body}

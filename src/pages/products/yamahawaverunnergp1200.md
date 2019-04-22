@@ -1,5 +1,5 @@
 ---
-templateKey: product
+templateKey: product-page
 title: Yamaha Waverunner GP1200
 image: /img/gp1200.jpg
 ---
