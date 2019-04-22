@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types'
 
 import Banner from '../components/Banner';
 import GridList from '../components/GridList';
@@ -7,21 +8,9 @@ import Products from '../components/Products';
 
 import '../sass/main.scss';
 
-const IndexPageTemplate = (props) => {
-  const {
-    data: {
-      markdownRemark: {
-        excerpt,
-        frontmatter: {
-          image,
-          title
-        }
-      }
-    }
-  } = props;
-
+export const IndexPageTemplate = ({excerpt, image, title}) => {
   return (
-    <Layout>
+    <Fragment>
       <Banner
         title={title}
         body={excerpt}
@@ -44,11 +33,36 @@ const IndexPageTemplate = (props) => {
           <p>&copy; DFW Marine Rentals</p>
         </div>
       </footer>
+    </Fragment>
+  );
+};
+
+const IndexPage = ({ data }) => {
+  const {
+      excerpt,
+      frontmatter
+  } = data.markdownRemark;
+
+  return (
+    <Layout>
+      <IndexPageTemplate
+        excerpt={excerpt}
+        image={frontmatter.image}
+        title={frontmatter.title}
+      />
     </Layout>
   );
 };
 
-export default IndexPageTemplate;
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object
+    })
+  })
+};
+
+export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
