@@ -60,7 +60,8 @@ export class ProductTemplate extends Component {
 }
 
 ProductTemplate.propTypes = {
-  body: PropTypes.string,
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
   image: PropTypes.shape(),
   title: PropTypes.string
 };

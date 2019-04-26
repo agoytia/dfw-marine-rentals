@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'
 
 import {Link} from 'gatsby';
@@ -8,6 +8,7 @@ class ContactFrom extends Component {
     super(props);
 
     this.state = {
+      duration: '6hours',
       name: '',
       email: '',
       phone: '',
@@ -33,6 +34,7 @@ class ContactFrom extends Component {
     const { formName, product, title} = this.props;
 
     const {
+      duration,
       name,
       email,
       phone,
@@ -84,10 +86,19 @@ class ContactFrom extends Component {
                     </div>
                     {
                       product && (
-                        <div className="field">
-                          <label htmlFor="model">Model</label>
-                          <input type="text" name="model" id="model" onChange={this.handleChange} value={product}/>
-                        </div>
+                        <Fragment>
+                          <div className="field half">
+                            <label htmlFor="duration">Duration</label>
+                            <select name="duration" id="duration" value={duration} onChange={this.handleChange}>
+                              <option value="6hours">6 Hours</option>
+                              <option value="fullDay">Full Day</option>
+                            </select>
+                          </div>
+                          <div className="field">
+                            <label htmlFor="model">Model</label>
+                            <input type="text" name="model" id="model" onChange={this.handleChange} value={product}/>
+                          </div>
+                        </Fragment>
                       )
                     }
                     <div className="field">

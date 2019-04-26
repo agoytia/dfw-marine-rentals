@@ -1,8 +1,9 @@
 import React from 'react';
 
 import {graphql, Link, StaticQuery } from 'gatsby'
-
 import classNames from "classnames";
+
+import HTML from '../HTML';
 
 const Products = (props) => {
   const {
@@ -27,10 +28,10 @@ const Products = (props) => {
     const { image, title } = node.frontmatter;
     const { slug } = node.fields;
     return (
-      <section key={title} {...sectionProps}>
+      <section key={title} id={node.id} {...sectionProps}>
         <div className="content">
           <h2>{title}</h2>
-          <p>{node.excerpt}</p>
+          <p><HTML>{node.html}</HTML></p>
           <Link to={slug} className="button large wide smooth-scroll-middle">Request to book</Link>
         </div>
         <div className="image">
@@ -50,7 +51,8 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt
+              html
+              id
               fields {
                 slug
               }
@@ -71,4 +73,4 @@ export default () => (
     `}
     render={(data, count) => <Products data={data} count={count} />}
   />
-)
+);
