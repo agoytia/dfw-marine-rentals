@@ -3,19 +3,25 @@ import PropTypes from 'prop-types'
 
 import Banner from '../components/Banner';
 import GridList from '../components/GridList';
+import HTML, { Content } from '../components/HTML';
 import Layout from '../components/Layout';
 import Products from '../components/Products';
 
 import '../sass/main.scss';
 
-export const IndexPageTemplate = ({excerpt, image, title}) => {
+export const IndexPageTemplate = ({content, contentComponent, image, title}) => {
+  // contentComponent is passed as a custom renderer for the content (i.e. HTML for dangerously setting
+  // and handling HTML or default to the rendering the raw Content)
+  const BannerContentComponent = contentComponent || Content;
+
   return (
     <Fragment>
       <Banner
         title={title}
-        body={excerpt}
         image={image}
-      />
+      >
+        <BannerContentComponent>{content}</BannerContentComponent>
+      </Banner>
       {/* <!-- Table --> */}
       <section className="wrapper style1 align-center">
         <div className="inner">
@@ -116,14 +122,15 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const {
-      excerpt,
-      frontmatter
+    html,
+    frontmatter
   } = data.markdownRemark;
 
   return (
     <Layout>
       <IndexPageTemplate
-        excerpt={excerpt}
+        content={html}
+        contentComponent={HTML}
         image={frontmatter.image}
         title={frontmatter.title}
       />
@@ -144,7 +151,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      excerpt
+      html
       frontmatter {
         title
         image {

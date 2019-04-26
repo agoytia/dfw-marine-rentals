@@ -8,7 +8,7 @@ const IndexPagePreview = ({ entry, getAsset, widgetFor }) => {
   if (data) {
     return (
       <IndexPageTemplate
-        excerpt={widgetFor('body')}
+        content={widgetFor('body')}
         image={getAsset(data.image)}
         title={data.title}
       />

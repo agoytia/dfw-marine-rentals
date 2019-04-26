@@ -4,13 +4,9 @@ import PropTypes from 'prop-types';
 import { navigate } from 'gatsby-link'
 
 import ContactForm from '../components/ContactForm';
+import HTML, { Content } from '../components/HTML';
 import Layout from '../components/Layout';
-
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
+import { encode } from '../utilities';
 
 export class ProductTemplate extends Component {
   handleSubmit = form => {
@@ -33,18 +29,20 @@ export class ProductTemplate extends Component {
 
   render() {
     const {
-      body,
+      content,
+      contentComponent,
       image = {},
       title
     } = this.props;
 
+    const ProductDescription = contentComponent || Content;
     return (
       <Fragment>
         {/*<section className="banner style3 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">*/}
         <section className="spotlight style2 orient-left content-align-left image-position-center onscroll-image-fade-in">
           <div className="content">
             <h1>{title}</h1>
-            {body}
+            <ProductDescription>{content}</ProductDescription>
           </div>
           <div className="image">
             <img src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image}/>
@@ -69,14 +67,15 @@ ProductTemplate.propTypes = {
 
 const ProductPage = ({ data }) => {
   const {
-    excerpt,
+    html,
     frontmatter
   } = data.markdownRemark;
 
   return (
     <Layout>
       <ProductTemplate
-        body={excerpt}
+        content={html}
+        contentComponent={HTML}
         image={frontmatter.image}
         title={frontmatter.title}
       />
@@ -98,7 +97,6 @@ export const pageQuery = graphql`
   query ProductsByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
      id
-     excerpt
      html
      frontmatter {
        title

@@ -4,12 +4,7 @@ import { navigate } from 'gatsby-link'
 
 import ContactForm from '../../components/ContactForm';
 import Layout from '../../components/Layout';
-
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
+import { encode } from '../../utilities';
 
 const handleSubmit = (form) => {
   const {

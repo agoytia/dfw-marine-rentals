@@ -25,7 +25,10 @@ collections:
     slug: "{{title}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
+      - {label: Type, name: type, widget: select, options: ['jet ski', 'boat', 'pontoon']}
       - {label: Title, name: title, widget: string}
       - {label: Image, name: image, widget: image}
-      - {label: "Dates Booked", name: date, widget: datetime}
+      - {label: "Dates Booked", name: datesBooked, widget: list, field: {label: "Date Booked", name: dateBooked, widget: date}}
+      - {label: "6 hr Price", name: partialPrice, widget: number}
+      - {label: "Full Day Price", name: fullPrice, widget: number}
       - {label: Body, name: body, widget: markdown}
