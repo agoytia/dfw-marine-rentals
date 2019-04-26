@@ -26,7 +26,8 @@ class ContactFrom extends Component {
     this.props.onSubmit({
       formAction: form.getAttribute('action'),
       formName: form.getAttribute('name'),
-      ...this.state
+      ...this.state,
+      model: this.props.product
     });
   };
 
