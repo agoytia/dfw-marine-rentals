@@ -2,8 +2,6 @@
 templateKey: product-page
 title: Yamaha Waverunner GP800
 image: /img/gp800.jpg
+date: 2019-04-26T01:21:06.759Z
 ---
-
-Available now.
-$250 for 6 hours.
-$300 for a day.
+Great 2 seater for casual family fun cruising the lake.
