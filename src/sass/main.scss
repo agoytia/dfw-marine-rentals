@@ -6,6 +6,7 @@
 @import 'libs/html-grid';
 @import 'fonts/font-awesome.min.css';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i');
+@import "~react-datepicker/dist/react-datepicker.css";
 
 /*
 	Story by HTML5 UP
@@ -179,6 +180,7 @@
 	@import 'components/wrapper';
 	@import 'components/items';
 	@import 'components/index';
+    @import 'components/datepicker';
 
 // Layout.
 

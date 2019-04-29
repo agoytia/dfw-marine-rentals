@@ -1,0 +1,9 @@
+/* Datepicker */
+    .react-datepicker {
+      font-family: inherit !important;
+      border-color: rgba(0, 0, 0, 0.2) !important;
+
+      &__header {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+      }
+    }

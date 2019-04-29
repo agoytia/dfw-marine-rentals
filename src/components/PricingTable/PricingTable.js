@@ -2,6 +2,7 @@ import React from 'react';
 import {graphql, StaticQuery} from "gatsby";
 
 import HTML from '../HTML';
+import pricingTableStyles from './PricingTable.module.scss';
 
 const PricingTable = (props) => {
   const {
@@ -40,7 +41,7 @@ const PricingTable = (props) => {
                       .map(({ node }) => (
                         <tr key={node.id}>
                           <td>{node.frontmatter.title}</td>
-                          <td><HTML>{node.html}</HTML></td>
+                          <td><HTML className={pricingTableStyles.markdown}>{node.html}</HTML></td>
                           <td>${node.frontmatter.partialPrice.toFixed(2)}</td>
                           <td>${node.frontmatter.fullPrice.toFixed(2)}</td>
                         </tr>
@@ -67,7 +68,7 @@ const PricingTable = (props) => {
                       .map(({ node }) => (
                         <tr key={node.id}>
                           <td>{node.frontmatter.title}</td>
-                          <td><HTML>{node.html}</HTML></td>
+                          <td><HTML className={pricingTableStyles.markdown}>{node.html}</HTML></td>
                           <td>${node.frontmatter.fullPrice.toFixed(2)}</td>
                         </tr>
                       ))
@@ -93,7 +94,7 @@ const PricingTable = (props) => {
                       .map(({ node }) => (
                         <tr key={node.id}>
                           <td>{node.frontmatter.title}</td>
-                          <td><HTML>{node.html}</HTML></td>
+                          <td><HTML className={pricingTableStyles.markdown}>{node.html}</HTML></td>
                           <td>${node.frontmatter.fullPrice.toFixed(2)}</td>
                         </tr>
                       ))
