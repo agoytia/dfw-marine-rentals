@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 
 import classNames from 'classnames';
 import {graphql, Link, StaticQuery } from 'gatsby'
-import isEmpty from 'lodash/isEmpty';
-import DatePicker from 'react-datepicker';
 
 import HTML from '../HTML';
-import noop from '../../utilities/noop';
 
 class Products extends Component {
   render() {
@@ -29,36 +26,14 @@ class Products extends Component {
       const sectionProps = {className};
       if (index === 0) sectionProps.id = 'first';
 
-      const { datesBooked, image, title } = node.frontmatter;
+      const { image, title } = node.frontmatter;
       const { slug } = node.fields;
-
-      let excludeDates = [];
-
-      if(!isEmpty(datesBooked)) {
-        excludeDates = datesBooked.map(date => new Date(date));
-      }
 
       return (
         <section key={title} id={node.id} {...sectionProps}>
           <div className="content">
             <h2>{title}</h2>
             <HTML>{node.html}</HTML>
-            <div className="index align-left">
-              <section>
-                <header>Availability</header>
-                <div>
-                  <DatePicker
-                    dropdownMode="scroll"
-                    excludeDates={excludeDates}
-                    fixedHeight
-                    inline
-                    onChange={noop}
-                    readOnly
-                  />
-                </div>
-              </section>
-            </div>
-            <hr />
             <Link to={slug} className="button large wide smooth-scroll-middle">Request to book</Link>
           </div>
           <div className="image">
@@ -85,7 +60,6 @@ export default () => (
                 slug
               }
               frontmatter {
-                datesBooked
                 image {
                   childImageSharp {
                   fluid {

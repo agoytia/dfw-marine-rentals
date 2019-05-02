@@ -2,13 +2,11 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { navigate } from 'gatsby-link'
-import isEmpty from 'lodash/isEmpty';
-import DatePicker from 'react-datepicker';
 
 import ContactForm from '../components/ContactForm';
 import HTML, { Content } from '../components/HTML';
 import Layout from '../components/Layout';
-import { encode, noop } from '../utilities';
+import { encode } from '../utilities';
 
 export class ProductTemplate extends Component {
   handleSubmit = form => {
@@ -33,7 +31,6 @@ export class ProductTemplate extends Component {
     const {
       content,
       contentComponent,
-      datesBooked,
       image = {},
       title
     } = this.props;
@@ -47,21 +44,6 @@ export class ProductTemplate extends Component {
           <div className="content">
             <h1>{title}</h1>
             <ProductDescription>{content}</ProductDescription>
-            <div className="index align-left">
-              <section>
-                <header>Availability</header>
-                <div className="content">
-                  <DatePicker
-                    excludeDates={datesBooked}
-                    fixedHeight
-                    dropdownMode="scroll"
-                    inline
-                    onChange={noop}
-                    readOnly
-                  />
-                </div>
-              </section>
-            </div>
           </div>
           <div className="image">
             <img src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image}/>
@@ -81,7 +63,6 @@ export class ProductTemplate extends Component {
 ProductTemplate.propTypes = {
   content: PropTypes.string,
   contentComponent: PropTypes.func,
-  datesBooked: PropTypes.arrayOf(PropTypes.string),
   image: PropTypes.shape(),
   title: PropTypes.string
 };
@@ -92,17 +73,11 @@ const ProductPage = ({ data }) => {
     frontmatter
   } = data.markdownRemark;
 
-  let datesBooked = [];
-  if(!isEmpty(frontmatter.datesBooked)) {
-    datesBooked = frontmatter.datesBooked.map(date => new Date(date));
-  }
-
   return (
     <Layout>
       <ProductTemplate
         content={html}
         contentComponent={HTML}
-        datesBooked={datesBooked}
         image={frontmatter.image}
         title={frontmatter.title}
       />
@@ -126,7 +101,6 @@ export const pageQuery = graphql`
      id
      html
      frontmatter {
-       datesBooked
        title
        image {
           childImageSharp {
